@@ -6,7 +6,7 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
+Console.WriteLine("Seja bem-vindo ao sistema de estacionamento!\n" +
                   "Digite o preço inicial:");
 precoInicial = Convert.ToDecimal(Console.ReadLine());
 
@@ -48,12 +48,17 @@ while (exibirMenu)
             break;
 
         default:
-            Console.WriteLine("Opção inválida");
-            break;
+            Console.WriteLine("Opção inválida! Pressione uma tecla para tentar novamente.");
+            Console.ReadKey(); // Aguarda o usuário pressionar uma tecla antes de continuar
+            continue; // Retorna ao início do loop
     }
 
-    Console.WriteLine("Pressione uma tecla para continuar");
-    Console.ReadLine();
+    if (exibirMenu)
+    {
+        Console.WriteLine("Pressione uma tecla para continuar");
+        Console.ReadKey(); // Aguarda uma tecla antes de continuar o loop
+    }
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("O programa se encerrou. Pressione qualquer tecla para sair.");
+Console.ReadKey(); 
